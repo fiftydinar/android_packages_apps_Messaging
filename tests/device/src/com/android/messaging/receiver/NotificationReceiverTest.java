@@ -19,11 +19,15 @@ import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.LocaleList;
 import android.test.InstrumentationTestCase;
 
 import com.android.messaging.R;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.ConversationIdSet;
+
+import java.util.Locale;
 
 public final class NotificationReceiverTest extends InstrumentationTestCase {
     public void testMarkAsReadIntentCarriesConversationSetAndIsUnique() {
@@ -79,5 +83,19 @@ public final class NotificationReceiverTest extends InstrumentationTestCase {
                 clip.getDescription().getLabel());
         assertEquals("A1B2C3", clip.getItemAt(0).getText().toString());
         assertNull(NotificationReceiver.createVerificationCodeClip(context, "not-a-code"));
+    }
+
+    public void testSerbianLatinLocaleUsesLatinStrings() {
+        final Context context = getInstrumentation().getTargetContext();
+        final Configuration configuration =
+                new Configuration(context.getResources().getConfiguration());
+        configuration.setLocales(new LocaleList(Locale.forLanguageTag("sr-Latn-RS")));
+        final Context latinContext = context.createConfigurationContext(configuration);
+
+        assertEquals("Razmena poruka", latinContext.getString(R.string.app_name));
+        assertEquals("Označi kao pročitano",
+                latinContext.getString(R.string.notification_mark_as_read));
+        assertEquals("Kopiraj kod",
+                latinContext.getString(R.string.notification_copy_verification_code));
     }
 }
