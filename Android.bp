@@ -111,3 +111,14 @@ prebuilt_etc {
     src: "com.android.messaging.allowlist.xml",
     filename_from_src: true,
 }
+
+java_test_host {
+    name: "MessagingNotificationLogicTests",
+    srcs: [
+        "src/com/android/messaging/util/NotificationActionDispatcher.java",
+        "src/com/android/messaging/util/VerificationCodeDetector.java",
+        "tests/host/src/**/*.java",
+    ],
+    libs: ["junit"],
+    test_suites: ["general-tests"],
+}

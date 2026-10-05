@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The Android Open Source Project
- * Copyright (C) 2024-2025 The LineageOS Project
+ * Copyright (C) 2024-2026 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,6 +63,7 @@ import com.android.messaging.datamodel.media.MediaRequest;
 import com.android.messaging.datamodel.media.MediaResourceManager;
 import com.android.messaging.datamodel.media.MessagePartVideoThumbnailRequestDescriptor;
 import com.android.messaging.datamodel.media.UriImageRequestDescriptor;
+import com.android.messaging.receiver.NotificationReceiver;
 import com.android.messaging.sms.MmsSmsUtils;
 import com.android.messaging.sms.MmsUtils;
 import com.android.messaging.ui.UIIntents;
@@ -79,6 +80,7 @@ import com.android.messaging.util.NotificationsUtil;
 import com.android.messaging.util.PendingIntentConstants;
 import com.android.messaging.util.ThreadUtil;
 import com.android.messaging.util.UriUtil;
+import com.android.messaging.util.VerificationCodeDetector;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -717,7 +719,13 @@ public class BugleNotifications {
         final WearableExtender wearableExtender = new WearableExtender();
         setWearableGroupOptions(notifBuilder, notificationState);
 
+        if (notificationState instanceof MessageNotificationState) {
+            addMarkAsReadAction(notifBuilder, (MessageNotificationState) notificationState);
+        }
+
         if (notificationState instanceof MultiMessageNotificationState) {
+            addCopyVerificationCodeAction(notifBuilder,
+                    (MultiMessageNotificationState) notificationState);
             if (attachmentBitmap != null) {
                 // When we've got a picture attachment, we do some switcheroo trickery. When
                 // the notification is expanded, we show the picture as a bigPicture. The small
@@ -743,6 +751,54 @@ public class BugleNotifications {
         // Apply the wearable options and build & post the notification
         notifBuilder.extend(wearableExtender);
         doNotify(notifBuilder.build(), notificationState);
+    }
+
+    private static void addMarkAsReadAction(final NotificationCompat.Builder notifBuilder,
+            final MessageNotificationState notificationState) {
+        final Context context = Factory.get().getApplicationContext();
+        final PendingIntent pendingIntent = NotificationReceiver.getPendingIntentForMarkAsRead(
+                context, notificationState.mConversationIds);
+        if (pendingIntent == null) {
+            return;
+        }
+        notifBuilder.addAction(new NotificationCompat.Action.Builder(
+                R.drawable.ic_mark_as_read_light,
+                context.getString(R.string.notification_mark_as_read), pendingIntent).build());
+    }
+
+    private static void addCopyVerificationCodeAction(
+            final NotificationCompat.Builder notifBuilder,
+            final MultiMessageNotificationState notificationState) {
+        if (notificationState.mConvList.mConvInfos.size() != 1) {
+            return;
+        }
+        final ConversationLineInfo conversationInfo = notificationState.mConvList.mConvInfos.get(0);
+        if (conversationInfo.mLineInfos.isEmpty()
+                || !(conversationInfo.mLineInfos.get(0)
+                        instanceof MessageNotificationState.MessageLineInfo)) {
+            return;
+        }
+        final MessageNotificationState.MessageLineInfo latestMessage =
+                (MessageNotificationState.MessageLineInfo) conversationInfo.mLineInfos.get(0);
+        if (latestMessage.mIsManualDownloadNeeded || latestMessage.mAttachmentUri != null
+                || latestMessage.mText == null) {
+            return;
+        }
+        final String code = VerificationCodeDetector.findCode(latestMessage.mText.toString());
+        if (code == null) {
+            return;
+        }
+
+        final Context context = Factory.get().getApplicationContext();
+        final PendingIntent pendingIntent =
+                NotificationReceiver.getPendingIntentForCopyVerificationCode(context,
+                        conversationInfo.mConversationId, latestMessage.mMessageId, code);
+        if (pendingIntent != null) {
+            notifBuilder.addAction(new NotificationCompat.Action.Builder(
+                    R.drawable.ic_content_copy_light,
+                    context.getString(R.string.notification_copy_verification_code),
+                    pendingIntent).build());
+        }
     }
 
     private static void setWearableGroupOptions(final NotificationCompat.Builder notifBuilder,
@@ -1129,4 +1185,3 @@ public class BugleNotifications {
                 builder.build());
     }
 }
-
