@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">വായിച്ചതായി അടയാളപ്പെടുത്തുക</string>
+    <string name="notification_copy_verification_code">കോഡ് പകർത്തുക</string>
+    <string name="verification_code_clip_label">സ്ഥിരീകരണ കോഡ്</string>
+    <string name="verification_code_copied">സ്ഥിരീകരണ കോഡ് പകർത്തി</string>
+</resources>

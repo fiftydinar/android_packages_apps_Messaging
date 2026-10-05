@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">વાંચેલ તરીકે ચિહ્નિત કરો</string>
+    <string name="notification_copy_verification_code">કોડ કૉપિ કરો</string>
+    <string name="verification_code_clip_label">ચકાસણી કોડ</string>
+    <string name="verification_code_copied">ચકાસણી કોડ કૉપિ થયો</string>
+</resources>

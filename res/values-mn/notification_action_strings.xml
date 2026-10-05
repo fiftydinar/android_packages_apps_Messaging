@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Уншсан гэж тэмдэглэх</string>
+    <string name="notification_copy_verification_code">Кодыг хуулах</string>
+    <string name="verification_code_clip_label">Баталгаажуулах код</string>
+    <string name="verification_code_copied">Баталгаажуулах кодыг хууллаа</string>
+</resources>

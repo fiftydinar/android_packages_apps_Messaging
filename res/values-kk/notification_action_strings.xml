@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Оқылды деп белгілеу</string>
+    <string name="notification_copy_verification_code">Кодты көшіру</string>
+    <string name="verification_code_clip_label">Растау коды</string>
+    <string name="verification_code_copied">Растау коды көшірілді</string>
+</resources>

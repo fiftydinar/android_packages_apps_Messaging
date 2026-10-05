@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">សម្គាល់ថាបានអាន</string>
+    <string name="notification_copy_verification_code">ចម្លងលេខកូដ</string>
+    <string name="verification_code_clip_label">លេខកូដផ្ទៀងផ្ទាត់</string>
+    <string name="verification_code_copied">បានចម្លងលេខកូដផ្ទៀងផ្ទាត់</string>
+</resources>

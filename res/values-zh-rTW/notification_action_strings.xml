@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">標示為已讀</string>
+    <string name="notification_copy_verification_code">複製驗證碼</string>
+    <string name="verification_code_clip_label">驗證碼</string>
+    <string name="verification_code_copied">已複製驗證碼</string>
+</resources>

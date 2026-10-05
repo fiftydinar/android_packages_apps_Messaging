@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Oxunmuş kimi işarələ</string>
+    <string name="notification_copy_verification_code">Kodu kopyala</string>
+    <string name="verification_code_clip_label">Təsdiq kodu</string>
+    <string name="verification_code_copied">Təsdiq kodu kopyalandı</string>
+</resources>

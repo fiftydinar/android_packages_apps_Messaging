@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Weka alama kuwa imesomwa</string>
+    <string name="notification_copy_verification_code">Nakili msimbo</string>
+    <string name="verification_code_clip_label">Msimbo wa uthibitisho</string>
+    <string name="verification_code_copied">Msimbo wa uthibitisho umenakiliwa</string>
+</resources>

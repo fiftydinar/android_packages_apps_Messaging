@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">ဖတ်ပြီးဟု မှတ်သားရန်</string>
+    <string name="notification_copy_verification_code">ကုဒ်ကို ကူးယူရန်</string>
+    <string name="verification_code_clip_label">အတည်ပြုကုဒ်</string>
+    <string name="verification_code_copied">အတည်ပြုကုဒ်ကို ကူးယူပြီးပါပြီ</string>
+</resources>

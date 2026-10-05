@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Žymėti kaip skaitytą</string>
+    <string name="notification_copy_verification_code">Kopijuoti kodą</string>
+    <string name="verification_code_clip_label">Patvirtinimo kodas</string>
+    <string name="verification_code_copied">Patvirtinimo kodas nukopijuotas</string>
+</resources>

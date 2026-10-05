@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Đánh dấu đã đọc</string>
+    <string name="notification_copy_verification_code">Sao chép mã</string>
+    <string name="verification_code_clip_label">Mã xác minh</string>
+    <string name="verification_code_copied">Đã sao chép mã xác minh</string>
+</resources>

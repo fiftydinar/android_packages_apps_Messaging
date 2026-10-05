@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">پڑھا ہوا نشان زد کریں</string>
+    <string name="notification_copy_verification_code">کوڈ کاپی کریں</string>
+    <string name="verification_code_clip_label">تصدیقی کوڈ</string>
+    <string name="verification_code_copied">تصدیقی کوڈ کاپی ہو گیا</string>
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Markahang nabasa na</string>
+    <string name="notification_copy_verification_code">Kopyahin ang code</string>
+    <string name="verification_code_clip_label">Kodigo ng pagpapatunay</string>
+    <string name="verification_code_copied">Nakopya na ang verification code</string>
+</resources>

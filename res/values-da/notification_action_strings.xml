@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Markér som læst</string>
+    <string name="notification_copy_verification_code">Kopiér kode</string>
+    <string name="verification_code_clip_label">Bekræftelseskode</string>
+    <string name="verification_code_copied">Bekræftelseskode kopieret</string>
+</resources>

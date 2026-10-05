@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Означи као прочитано</string>
+    <string name="notification_copy_verification_code">Копирај код</string>
+    <string name="verification_code_clip_label">Верификациони код</string>
+    <string name="verification_code_copied">Верификациони код је копиран</string>
+</resources>

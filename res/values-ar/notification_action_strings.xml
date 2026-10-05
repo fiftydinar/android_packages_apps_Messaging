@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">وضع علامة كمقروءة</string>
+    <string name="notification_copy_verification_code">نسخ الرمز</string>
+    <string name="verification_code_clip_label">رمز التحقق</string>
+    <string name="verification_code_copied">تم نسخ رمز التحقق</string>
+</resources>

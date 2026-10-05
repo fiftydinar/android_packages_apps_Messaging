@@ -1,0 +1,6 @@
+<resources>
+    <string name="notification_mark_as_read">Marquer comme lu</string>
+    <string name="notification_copy_verification_code">Copier le code</string>
+    <string name="verification_code_clip_label">Code de vérification</string>
+    <string name="verification_code_copied">Code de vérification copié</string>
+</resources>
